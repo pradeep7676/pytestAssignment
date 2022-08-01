@@ -28,14 +28,14 @@ class TestShopping(Base):
 
     def test_searchProduct(self, searchproduct):
         sp_obj = SearchProduct(self.driver)
-        sp_obj.wait_explicit(sp_obj.productType)
-        #time.sleep(1)
+        #sp_obj.wait_explicit(sp_obj.productType)
+        time.sleep(1)
         sp_obj.product_type().send_keys(searchproduct['item'])
 
-        sp_obj.wait_explicit(sp_obj.search)
+        #sp_obj.wait_explicit(sp_obj.search)
         sp_obj.search_product().click()
 
-        sp_obj.wait_explicit(sp_obj.produc)
+        #sp_obj.wait_explicit(sp_obj.produc)
         sp_obj.product().click()
 
     def test_addCart(self):
@@ -46,7 +46,7 @@ class TestShopping(Base):
         print(cart_obj.get_productName().text)
         print(cart_obj.get_productPrice().text)
 
-        cart_obj.wait_explicit(CartPage.addingCart)
+        #cart_obj.wait_explicit(CartPage.addingCart)
         cart_obj.adding_cart().click()
 
  #error in remove cart test case
@@ -54,12 +54,13 @@ class TestShopping(Base):
         remove_obj = RemoveCart(self.driver)
 
         remove_obj.wait_explicit(remove_obj.removing)
+        # removing from the cart
         remove_obj.remove_cart().click()
 
         remove_obj.wait_explicit(remove_obj.remove_confirmation())
         remove_obj.remove_confirmation().click()
 
- #error in logout
+ 
     def test_logout(self):
         logout_obj = LogoutPage(self.driver)
 
