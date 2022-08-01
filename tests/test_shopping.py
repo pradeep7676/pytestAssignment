@@ -25,7 +25,6 @@ class TestShopping(Base):
         loginPage.passward().send_keys(getData['passward'])
         loginPage.loginButton().click()
 
-
     def test_searchProduct(self, searchproduct):
         sp_obj = SearchProduct(self.driver)
         sp_obj.wait_explicit(sp_obj.productType)
