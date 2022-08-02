@@ -24,6 +24,7 @@ class TestShopping(Base):
         loginPage.userName().send_keys(getData['user_id'])
         loginPage.passward().send_keys(getData['passward'])
         loginPage.loginButton().click()
+        self.logging("login successfully")
 
     def test_searchProduct(self, searchproduct):
         sp_obj = SearchProduct(self.driver)
