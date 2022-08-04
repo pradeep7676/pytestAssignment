@@ -1,6 +1,6 @@
 class Constants:
-    chrome_excutiblepath = "F:\packages\chromedriver.exe"
-    fireFox_excutiblepath = "F:\packages\geckodriver.exe"
+    chrome_executablepath = "F:\packages\chromedriver.exe"
+    fireFox_executablepath = "F:\packages\geckodriver.exe"
 
 
     baseUrl = "http://flipkart.com/"

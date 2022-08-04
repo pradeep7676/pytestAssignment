@@ -18,16 +18,16 @@ def setup(request):
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument('--ignore-certificate-error')
     if browser_name == "chrome":
-        s = Service("F:\packages\chromedriver.exe")
+        s = Service(Constants.chrome_executablepath)
         driver = webdriver.Chrome(service=s, options=chrome_options)
     elif browser_name == "firefox":
         driver = webdriver.Firefox(executable_path="F:\packages\geckodriver.exe")
-        s = Service("F:\packages\geckodriver.exe")
+        s = Service(Constants.fireFox_executablepath)
         driver = webdriver.Firefox(service=s)
     elif browser_name == "IE":
         print("IE driver")
 
-    driver.get("http://flipkart.com/")
+    driver.get(Constants.baseUrl)
     driver.maximize_window()
 
     request.cls.driver = driver

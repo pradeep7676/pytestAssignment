@@ -1,0 +1,14 @@
+1659609950050	geckodriver	INFO	Listening on 127.0.0.1:55352
+1659609953128	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "55353" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\prade\\AppData\\Local\\Temp\\rust_mozprofileboL0eT"
+1659609953600	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:55353
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\prade\\AppData\\Local\\Temp\\rust_mozprofileboL0eT\\search.json.mozlz4", (void 0)))
+1659609955019	Marionette	INFO	Listening on port 55375
+Read port: 55375
+1659609955131	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:55353/devtools/browser/479fa885-b2c6-45c5-8e56-70c77445668d
+1659610469169	Marionette	INFO	Stopped listening on port 55375
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+
+###!!! [Parent][PGPUParent] Error: RunMessage(msgname=PGPU::Msg_ShutdownVR) Channel closing: too late to send/recv, messages will be lost
+
