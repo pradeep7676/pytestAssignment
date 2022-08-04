@@ -1,5 +1,6 @@
 import logging
 import time
+import unittest
 
 import pytest
 from selenium.webdriver import ActionChains
@@ -50,6 +51,7 @@ class TestShopping(Base):
         cart_obj.adding_cart().click()
 
  #error in remove cart test case
+
     def test_removeCart(self):
         remove_obj = RemoveCart(self.driver)
 
