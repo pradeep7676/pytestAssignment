@@ -13,31 +13,32 @@ from pageObject.removeCart import RemoveCart
 from pageObject.searchProduct import SearchProduct
 from testData.testData import TestData
 from utilities.base import Base
-
+from selenium.webdriver.common.keys import Keys
 
 class TestShopping(Base):
 
-    def test_login(self, getData):
+
+    def test_searchProduct(self, searchproduct, getData):
         self.driver.implicitly_wait(5)
-        loginPage = LoginPage(self.driver)
-
-        #entering useraname and passwrd
-        loginPage.userName().send_keys(getData['user_id'])
-        loginPage.passward().send_keys(getData['passward'])
-        loginPage.loginButton().click()
-        self.logging("login successfully")
-
-    def test_searchProduct(self, searchproduct):
+        LoginPage.login_creditionals(self,credi=getData)
         sp_obj = SearchProduct(self.driver)
+
         sp_obj.wait_explicit(sp_obj.productType)
         time.sleep(1)
-        sp_obj.product_type().send_keys(searchproduct['item'])
 
-        sp_obj.wait_explicit(sp_obj.search)
-        sp_obj.search_product().click()
+        sp_obj.product_type().send_keys(searchproduct['item'])
+        sp_obj.product_type().send_keys(Keys.ENTER)
+
+        # sp_obj.wait_explicit(sp_obj.search)
+        # sp_obj.search_product().click()
 
         sp_obj.wait_explicit(sp_obj.produc)
         sp_obj.product().click()
+        sp_val = self.driver.title
+        if sp_val == "Iphone- Buy Products Online at Best Price in India - All Categories | Flipkart.com":
+            assert True
+        else:
+            assert False
 
     def test_addCart(self):
         cart_obj = CartPage(self.driver)
@@ -50,7 +51,11 @@ class TestShopping(Base):
         cart_obj.wait_explicit(CartPage.addingCart)
         cart_obj.adding_cart().click()
 
- #error in remove cart test case
+        cart_val = self.driver.title
+        assert "APPLE" in cart_val
+
+
+
 
     def test_removeCart(self):
         remove_obj = RemoveCart(self.driver)
@@ -61,6 +66,9 @@ class TestShopping(Base):
 
         remove_obj.wait_explicit(remove_obj.remove_confirmation())
         remove_obj.remove_confirmation().click()
+
+        remove_val = self.driver.title
+        assert "APPLE" in remove_val
 
 
     def test_logout(self):

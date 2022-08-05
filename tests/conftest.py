@@ -13,24 +13,25 @@ def pytest_addoption(parser):
 
 @pytest.fixture(scope="class")
 def setup(request):
-    global driver
+    #global driver
     browser_name = request.config.getoption("browser_name")
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument('--ignore-certificate-error')
+    driver = None
     if browser_name == "chrome":
         s = Service(Constants.chrome_executablepath)
         driver = webdriver.Chrome(service=s, options=chrome_options)
     elif browser_name == "firefox":
-        driver = webdriver.Firefox(executable_path="F:\packages\geckodriver.exe")
+        # driver = webdriver.Firefox(executable_path="F:\packages\geckodriver.exe")
         s = Service(Constants.fireFox_executablepath)
         driver = webdriver.Firefox(service=s)
     elif browser_name == "IE":
         print("IE driver")
 
-    driver.get(Constants.baseUrl)
+    driver.get("http://flipkart.com/")
     driver.maximize_window()
 
     request.cls.driver = driver
     yield
-    driver.close()
+
 

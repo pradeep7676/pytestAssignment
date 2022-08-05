@@ -1,5 +1,5 @@
 class Constants:
-    chrome_executablepath = "F:\packages\chromedriver.exe"
+    chrome_executablepath = "F:\pack\chromedriver.exe"
     fireFox_executablepath = "F:\packages\geckodriver.exe"
 
 
